@@ -36,6 +36,13 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 fragmentNavigate(homeFragment)
                 return true
             }
+            R.id.explore ->
+            {
+                val exploreFragment = ExploreFragment.newInstance()
+                fragmentNavigate(exploreFragment)
+                return true
+
+            }
 
         }
         return false

@@ -1,0 +1,158 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Water Bottle Fish Craft",
+      "image": "@drawable/plastic_1",
+      "plastic": true,
+      "glass": false,
+      "metal": false,
+      "points": 75,
+      "materials": [
+        "Water bottle",
+        "Scissors",
+        "Tape",
+        "Paint or markers",
+        "Glue",
+        "Google eyes"
+      ],
+      "instructions": [
+        "Take the lid off an empty water bottle and squish the bottle flat from about the middle of the bottle all the way to the bottom. Leave the front part puffy. If it does get flat, you can always put your finger in the mouth opening of the bottle and push the sides back out.",
+        "Cut off the bottom of the bottle about an inch up. You can make this a flat line or curve it to create an interesting shaped back fin.",
+        "Cut triangular notches in the side of the bottle to differentiate the back fin from the rest of the fish body.",
+        "Tape the triangle cut outs with clear tape so there is no longer exposed holes. This will make a more finished look and add a layer of protection from the sharp edges. You can tape the back of the fish as well if you are concerned with the kids getting cut. I did not tape that back fin, and we have had no problems. The paint will cover the tape.",
+        "Using Elmer’s Painters, “paint” (it really feels like coloring) the design onto your fish. We did a Google image search for tropical fish designs to help spark out imaginations. If you are layering colors, you will want to let paints dry in between. Paint dries to the touch rather quickly, so there is not a huge delay if you want to layer colors. I did the fish in the feature picture, and once I completed the entire bottom layer of color, I was able to go work on top of the colors that I had initially done.",
+        "Once dry, add a large google eye with a glue dot. We made one sided fish, but you could easily complete both sides."
+      ],
+      "favorite": false
+    },
+    {
+      "id": 2,
+      "title": "DIY Vertical Garden",
+      "image": "@drawable/plastic_2",
+      "plastic": true,
+      "glass": false,
+      "metal": false,
+      "points": 75,
+      "materials": [
+        "2-liter plastic bottle, empty and clean",
+        "Scissors",
+        "Clothesline rope, twine, or wire",
+        "Washers (two per bottle if rope or wire is chosen)",
+        "Dirt",
+        "Seedlings (herbs, vegetables, or other plants are all OK)"
+      ],
+      "instructions": [
+        "To secure the bottles, you must make two holes at the bottom of the cylinder and two at the top of the bottle.",
+        "In addition to the holes to pass the rope, you need a small hole in the bottom of the bottle. The water used to irrigate the seedling needs to drain.",
+        "After that, thread the string through a hole and pull out through the other.",
+        "Many people have asked how to make sure the bottles do not “slip” on the rope (or string or cordage). Either tie a large knot in the rope or tie the knot around a washer.",
+        "Then simply stretch and attach the rope to the wall."
+      ],
+      "favorite": false
+    },
+    {
+      "id": 3,
+      "title": "Rooster Mason Jar",
+      "image": "@drawable/glass_1",
+      "plastic": false,
+      "glass": true,
+      "metal": false,
+      "points": 100,
+      "materials": [
+        "Mason jar",
+        "Exacto knife",
+        "Contact paper",
+        "Red spray paint",
+        "Black acrylic paint",
+        "Sponge paint brush",
+        "Rooster Pattern or pattern of your choice found on Google"
+      ],
+      "instructions": [
+        "You will first paint the inside of your jar black, or color of your choice, using acrylic paint. Pour the paint inside and roll your jar around to coat the entire jar, use a sponge paint brush to coat it completely and evenly. Set it upside down on a paper plate to let the extra paint run out.  This usually takes about 2 hours. Then turn the jar right side up and let it dry over night.",
+        "After you have located a photo of your choice, save it to your desktop.  Size it down to fit your jar.  Do a test print to make sure it prints the size you prefer.",
+        "Tape a piece of contact paper that’s larger than your photo, on to a piece of paper. Print out your design here",
+        "Cut out your image using scissors and/or an exacto knife for the hard to get to places.",
+        "Peel off your image from the contact paper and place it on your jar.",
+        "Paint the outside of your jar, painting over your image.",
+        "After your jar has completely dried, peel off the image slowly and gently. I used the tip of an exacto knife to start, in the center of the image,  then it peeled right off. If you try to peel off your image from the edges you may chip the paint."
+      ],
+      "favorite": false
+    },
+    {
+      "id": 4,
+      "title": "DIY Tiki Torch",
+      "image": "@drawable/glass_2",
+      "plastic": false,
+      "glass": true,
+      "metal": false,
+      "points": 50,
+      "materials": [
+        "Tiki torch wicks, you can get it from online shops.",
+        "Bottles with the same size opening as a beer or wine bottle.",
+        "Tiki torch fluid",
+        "Matches"
+      ],
+      "instructions": [
+        "Fill the bottom of the bottle with water, just below the wick, don’t let the wick touch the water. The fuel will float on top of the water and reduces the amount of fuel needed and so the fuel doesn’t haven’t to travel as far up the wick.",
+        "Then fill the bottle with tiki fluid. Drench the wick in tiki torch fluid and then place it back in the bottle",
+        "Light away from people, trees or anything else that may be hazardous",
+        "When you’re done, blow the flame out and then place the copper cap back on the wick"
+      ],
+      "favorite": false
+    },
+    {
+      "id": 5,
+      "title": "DIY Wind Chimes",
+      "image": "@drawable/metal_1",
+      "plastic": false,
+      "glass": false,
+      "metal": true,
+      "points": 125,
+      "materials": [
+        "Cleaned out tin cans",
+        "Paint",
+        "String",
+        "Hammer",
+        "Nail",
+        "Metal washers or nuts",
+        "Glitter (optional)",
+        "Tape (optional)"
+      ],
+      "instructions": [
+        "Paint the outside of the tin cans.",
+        "After the paint dried, punch holes in the bottom of the tin cans using hammer and nail.",
+        "Push a long piece of yarn through the holes and tie two washers onto the end of the string, inside the tin cans. One washer is used to hold the yarn in place, the other is placed at the end of the string to make a lovely clanking sound when it hits the tin can.",
+        "Once you’ve tied on your washers to the wind chimes, test out the noise it makes.",
+        "Hang up the tin cans so that they overlap each other.",
+        "Let the wind do its thing and enjoy the wonderful clanking of your homemade wind chimes!"
+      ],
+      "favorite": false
+    },
+    {
+      "id": 6,
+      "title": "Can Planters",
+      "image": "@drawable/metal_2",
+      "plastic": false,
+      "glass": false,
+      "metal": true,
+      "points": 50,
+      "materials": [
+        "Tin cans",
+        "Hammer",
+        "Nail",
+        "Spray paint",
+        "Succulent or other plants",
+        "Soil",
+        "Rocks"
+      ],
+      "instructions": [
+        "First start by prepping the can- make sure that it is free of any metal shards left over from opening it. Make sure that it has been well washed and dried before starting. Remove the labels of the cans using hot water and dish soap.",
+        "Use the hammer and nail to place drainage holes in the bottom of each can. You can also use a drill with large drill bit if you prefer a large hole for drainage.",
+        "Next spray the cans. Spray the outside and bottom of the can first with an evenly applied coat. Let dry thoroughly (approximately 20-30 minutes) before flipping to paint the inside and let dry again. You don’t need to spray the entire inside, just the top that will show in the interior of the planter.",
+        "Once the tins are dry, fill with rocks at the bottom for drainage. Top with soil and plant the plants in each planter. Dust off the sides of the planters (from the excess dirt of planting) and find the perfect place for your little plant. You may want to use a small plate under each planter for drainage of excess water if you are using inside."
+      ],
+      "favorite": false
+    }
+  ]
+}
