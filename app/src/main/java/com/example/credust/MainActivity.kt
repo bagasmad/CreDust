@@ -1,11 +1,14 @@
 package com.example.credust
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.credust.databinding.ActivityMainBinding
+import com.example.credust.ui.explore.ExploreFragment
+import com.example.credust.ui.feeds.HomeFragment
+import com.example.credust.ui.scan.CameraFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
@@ -22,22 +25,18 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId)
-        {
-            R.id.scan ->
-            {
+        when (item.itemId) {
+            R.id.scan -> {
                 val cameraFragment = CameraFragment.newInstance()
                 fragmentNavigate(cameraFragment)
                 return true
             }
-            R.id.feed ->
-            {
+            R.id.feed -> {
                 val homeFragment = HomeFragment.newInstance()
                 fragmentNavigate(homeFragment)
                 return true
             }
-            R.id.explore ->
-            {
+            R.id.explore -> {
                 val exploreFragment = ExploreFragment.newInstance()
                 fragmentNavigate(exploreFragment)
                 return true
@@ -48,8 +47,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         return false
     }
 
-    private fun fragmentNavigate(fragment: Fragment)
-    {
+    private fun fragmentNavigate(fragment: Fragment) {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frame_layout, fragment)
         fragmentTransaction.commit()

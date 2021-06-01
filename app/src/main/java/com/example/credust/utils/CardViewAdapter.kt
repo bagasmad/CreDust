@@ -1,14 +1,14 @@
-package com.example.credust
+package com.example.credust.utils
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
+import com.example.credust.R
 import com.example.credust.data.ProjectDataClass
 import com.example.credust.databinding.CardviewBinding
+import com.example.credust.ui.detail.DetailFragment
 
 class CardViewAdapter : RecyclerView.Adapter<CardViewAdapter.CardViewViewHolder>() {
     private var listProjects = ArrayList<ProjectDataClass>()
@@ -20,12 +20,13 @@ class CardViewAdapter : RecyclerView.Adapter<CardViewAdapter.CardViewViewHolder>
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewAdapter.CardViewViewHolder {
-        val cardViewBinding = CardviewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewViewHolder {
+        val cardViewBinding =
+            CardviewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return CardViewViewHolder(cardViewBinding)
     }
 
-    override fun onBindViewHolder(holder: CardViewAdapter.CardViewViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CardViewViewHolder, position: Int) {
         val project = listProjects[position]
         holder.bind(project)
     }
@@ -33,17 +34,18 @@ class CardViewAdapter : RecyclerView.Adapter<CardViewAdapter.CardViewViewHolder>
     override fun getItemCount(): Int = listProjects.size
 
     inner class CardViewViewHolder(private val binding: CardviewBinding) :
-            RecyclerView.ViewHolder(binding.root) {
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(project: ProjectDataClass) {
             with(binding)
             {
                 nameTitle.text = project.title
                 cardBg.setImageResource(
-                        itemView.context.resources.getIdentifier(
-                                project.image.substring(
-                                        1
-                                ), null, itemView.context.packageName
-                        ))
+                    itemView.context.resources.getIdentifier(
+                        project.image.substring(
+                            1
+                        ), null, itemView.context.packageName
+                    )
+                )
                 pointsText.text = project.points.toString()
 
             }
@@ -55,9 +57,10 @@ class CardViewAdapter : RecyclerView.Adapter<CardViewAdapter.CardViewViewHolder>
                 val activity = itemView.context as AppCompatActivity
                 val fragmentManager = activity.supportFragmentManager
                 fragmentManager.beginTransaction()
-                    .replace(R.id.frame_layout,detailFragment)
+                    .replace(R.id.frame_layout, detailFragment)
                     .addToBackStack(null)
-                    .commit() }
+                    .commit()
+            }
         }
 
     }

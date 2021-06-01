@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="150dp"
     android:layout_margin="8dp"
-    android:elevation="8dp"
-    app:cardCornerRadius="10dp">
+    app:cardCornerRadius="10dp"
+    >
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -17,7 +17,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/ic_launcher_background"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop"
+            app:tint="#4000"
+            android:tintMode="src_over"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -28,9 +30,11 @@
                 android:id="@+id/name_title"
                 android:layout_width="101dp"
                 android:layout_height="wrap_content"
-                android:text="Placeholder Judul"
+                android:text="@string/placeholder"
                 android:textColor="@color/white"
                 android:textSize="18sp"
+                android:shadowRadius="10"
+                android:shadowColor="@color/shadow"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,18 +45,24 @@
                 android:src="@drawable/ic_points_logo"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/points_text"
-                android:layout_marginEnd="5dp"/>
+                android:layout_marginEnd="5dp"
+                android:shadowRadius="10"
+                android:shadowColor="@color/black"/>
 
             <TextView
                 android:id="@+id/points_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="300"
+                android:text="@string/number_placeholder"
                 android:textSize="16sp"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/points_logo" />
+                app:layout_constraintTop_toTopOf="@+id/points_logo"
+                android:shadowRadius="10"
+                android:shadowColor="#555"
+
+               />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
 </androidx.cardview.widget.CardView>

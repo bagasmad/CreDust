@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CameraFragment">
+    tools:context=".ui.scan.CameraFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
             android:id="@+id/illustration_photo"
             android:layout_width="210dp"
             android:layout_height="210dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="35dp"
             android:src="@drawable/ic_photograph"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:justificationMode="inter_word"
-                android:text="Collect unused items and scraps from around the house. Put them together in a nicely lit area and make sure that every item is separated and recognizable. Next, scan the items by pressing the scan button and the app will then give you DIY project recipes. Happy crafting!"
+                android:text="@string/help"
                 android:textSize="16sp" />
         </androidx.cardview.widget.CardView>
 
@@ -47,7 +47,7 @@
             android:layout_height="56dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:text="Scan Items"
+            android:text="@string/scan_items"
             />
 
     </LinearLayout>
