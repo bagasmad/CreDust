@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.credust.databinding.ActivityMainBinding
 import com.example.credust.ui.explore.ExploreFragment
 import com.example.credust.ui.feeds.HomeFragment
+import com.example.credust.ui.rewards.RewardsFragment
 import com.example.credust.ui.scan.CameraFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -22,6 +23,10 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         toolbar = supportActionBar!!
         val bottomNavigation: BottomNavigationView = binding.bottomNavbar
         bottomNavigation.setOnNavigationItemSelectedListener(this)
+        if (savedInstanceState == null) {
+            val homeFragment = HomeFragment.newInstance()
+            fragmentNavigate(homeFragment)
+        }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -39,6 +44,12 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             R.id.explore -> {
                 val exploreFragment = ExploreFragment.newInstance()
                 fragmentNavigate(exploreFragment)
+                return true
+
+            }
+            R.id.rewards -> {
+                val rewardsFragment = RewardsFragment.newInstance()
+                fragmentNavigate(rewardsFragment)
                 return true
 
             }

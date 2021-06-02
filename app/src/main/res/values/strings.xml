@@ -3,7 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="post_your_creations_for_x_points">Post your creations for %d points</string>
-    <string name="diy_projects_title">DIY projects</string>
+    <string name="diy_projects_title">DIY Projects</string>
     <string name="plastic_amount">%d\nPlastic</string>
     <string name="glass_amount">%d\nGlass</string>
     <string name="metal_amount">%d\nMetal</string>
@@ -16,4 +16,7 @@
     <string name="help">Collect unused items and scraps from around the house. Put them together in a nicely lit area and make sure that every item is separated and recognizable. Next, scan the items by pressing the scan button and the app will then give you DIY project recipes. Happy crafting!</string>
     <string name="scan_items">Scan Items</string>
     <string name="number_placeholder">x</string>
+    <string name="loading_results">Loading Results</string>
+    <string name="oops_something_happened">Oops... something happened</string>
+    <string name="lipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rhoncus dolor ac justo tempus, ac faucibus magna mollis. Mauris cursus, eros eget laoreet Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rhoncus dolor ac justo tempus, ac faucibus magna mollis. Mauris cursus, eros eget laoreet</string>
 </resources>

@@ -23,18 +23,18 @@ class InstructionAdapter : RecyclerView.Adapter<InstructionAdapter.InstructionVi
 
     override fun onBindViewHolder(holder: InstructionViewHolder, position: Int) {
         val instruction = listInstructions[position]
-        holder.bind(instruction,position)
+        holder.bind(instruction, position)
     }
 
     override fun getItemCount(): Int = listInstructions.size
 
     inner class InstructionViewHolder(private val binding: InstructionCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(instruction: String,position: Int) {
+        fun bind(instruction: String, position: Int) {
             with(binding)
             {
                 instructionText.text = instruction
-                instructionNumber.text = (position+1).toString()
+                instructionNumber.text = (position + 1).toString()
             }
         }
     }

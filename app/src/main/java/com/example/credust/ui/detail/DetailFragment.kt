@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.core.view.MenuItemCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -34,8 +33,10 @@ class DetailFragment : Fragment(), View.OnClickListener {
                 true -> nextState = false
                 false -> nextState = true
             }
-            project?.let { it1 -> detailViewModel.setProject(it1)
-            detailViewModel.favorite.postValue(it1.favorite)}
+            project?.let { it1 ->
+                detailViewModel.setProject(it1)
+                detailViewModel.favorite.postValue(it1.favorite)
+            }
 
         }
     }
@@ -57,10 +58,20 @@ class DetailFragment : Fragment(), View.OnClickListener {
         detailViewModel.favorite.observe(this,
             {
                 if (it) {
-                    binding.floatingButton.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_bookmark_yes))
+                    binding.floatingButton.setImageDrawable(
+                        ContextCompat.getDrawable(
+                            requireContext(),
+                            R.drawable.ic_bookmark_yes
+                        )
+                    )
                     nextState = false
                 } else {
-                    binding.floatingButton.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_bookmark_not))
+                    binding.floatingButton.setImageDrawable(
+                        ContextCompat.getDrawable(
+                            requireContext(),
+                            R.drawable.ic_bookmark_not
+                        )
+                    )
                     nextState = true
                 }
             })

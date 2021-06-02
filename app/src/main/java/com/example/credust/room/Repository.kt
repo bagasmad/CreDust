@@ -1,7 +1,9 @@
 package com.example.credust.room
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.LiveData
+import androidx.sqlite.db.SimpleSQLiteQuery
 import com.example.credust.data.ProjectDataClass
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
@@ -26,7 +28,6 @@ class Repository(application: Application) {
 
     fun getFavoriteProjects(): LiveData<List<ProjectDataClass>> = dao.getFavoriteProjects()
 
-
     fun insertProjects(projects: List<ProjectDataClass>) =
         executorService.execute { dao.insertProjects(projects) }
 
@@ -34,5 +35,32 @@ class Repository(application: Application) {
         project.favorite = state
         executorService.execute { dao.updateFavorite(project) }
     }
+
+    fun getRecommendedProjects(
+        plastic: Boolean,
+        glass: Boolean,
+        metal: Boolean
+    ): LiveData<List<ProjectDataClass>> {
+        val stringBuilder = StringBuilder().append("SELECT * from projects_table WHERE ")
+        if (plastic) {
+            stringBuilder.append("plastic = 1")
+            if (glass || metal) {
+                stringBuilder.append(" OR ")
+            }
+        }
+        if (glass) {
+            stringBuilder.append("glass = 1")
+            if (metal) {
+                stringBuilder.append(" OR ")
+            }
+        }
+        if (metal) {
+            stringBuilder.append("metal = 1")
+        }
+        val query = stringBuilder.toString()
+        Log.i("Rekomendasi", query)
+        return dao.getRecommendedProjects(SimpleSQLiteQuery(query))
+    }
+
 
 }

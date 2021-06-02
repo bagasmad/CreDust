@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.credust.ui.detail.DetailViewModel
 import com.example.credust.ui.explore.ExploreViewModel
+import com.example.credust.ui.scan.CameraResultsViewModel
 
 class ViewModelFactory private constructor(private val mApplication: Application) :
     ViewModelProvider.NewInstanceFactory() {
@@ -30,6 +31,9 @@ class ViewModelFactory private constructor(private val mApplication: Application
             }
             modelClass.isAssignableFrom(DetailViewModel::class.java) -> {
                 DetailViewModel(mApplication) as T
+            }
+            modelClass.isAssignableFrom(CameraResultsViewModel::class.java) -> {
+                CameraResultsViewModel(mApplication) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
         }

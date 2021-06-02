@@ -51,14 +51,14 @@ class CameraFragment : Fragment() {
                 ex.printStackTrace()
                 null
             }
-            photoFile?.also{
+            photoFile?.also {
                 val photoURI: Uri = FileProvider.getUriForFile(
-                requireContext(),
-                "com.example.android.fileprovider",
-                it
+                    requireContext(),
+                    "com.example.android.fileprovider",
+                    it
                 )
-                cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT,photoURI)
-                Log.i("PHOTOURI",photoURI.toString())
+                cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
+                Log.i("PHOTOURI", photoURI.toString())
                 startActivityForResult(cameraIntent, requestCameraCode)
             }
 
@@ -71,7 +71,7 @@ class CameraFragment : Fragment() {
             val cameraResultsFragment = CameraResultsFragment.newInstance()
             val bundle = Bundle()
             bundle.putString("URI", currentPhotoPath)
-            cameraResultsFragment.arguments =  bundle
+            cameraResultsFragment.arguments = bundle
             val fragmentManager = requireActivity().supportFragmentManager
             fragmentManager.beginTransaction()
                 .replace(R.id.frame_layout, cameraResultsFragment)

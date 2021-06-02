@@ -12,16 +12,14 @@ class DetailViewModel(application: Application) : ViewModel() {
     var project = MutableLiveData<ProjectDataClass>()
     var favorite = MutableLiveData<Boolean>()
 
-    fun getProject():LiveData<ProjectDataClass> = project
+    fun getProject(): LiveData<ProjectDataClass> = project
 
     fun setProject(project: ProjectDataClass) = this.project.postValue(project)
 
-    fun updateFavorite(project: ProjectDataClass, nextState:Boolean)
-    {
-        repository.updateFavorite(project,nextState)
+    fun updateFavorite(project: ProjectDataClass, nextState: Boolean) {
+        repository.updateFavorite(project, nextState)
         favorite.postValue(nextState)
     }
-
 
 
 }

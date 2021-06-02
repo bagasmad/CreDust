@@ -3,8 +3,6 @@ package com.example.credust.data
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.TypeConverters
-import com.example.credust.room.utils.Converter
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

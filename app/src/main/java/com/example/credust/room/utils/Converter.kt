@@ -1,7 +1,6 @@
 package com.example.credust.room.utils
 
 import androidx.room.TypeConverter
-import com.example.credust.data.ProjectDataClass
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
