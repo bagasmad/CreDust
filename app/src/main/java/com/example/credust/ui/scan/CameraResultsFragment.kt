@@ -1,11 +1,13 @@
 package com.example.credust.ui.scan
 
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import com.example.credust.data.ResultsDetection
 import com.example.credust.databinding.FragmentCameraResultsBinding
@@ -16,6 +18,9 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.ByteArrayOutputStream
 import java.io.IOException
+import java.io.InputStream
+import java.text.SimpleDateFormat
+import java.util.*
 
 class CameraResultsFragment : Fragment() {
 
@@ -32,70 +37,91 @@ class CameraResultsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val bundle = this.arguments
-        val bitmap = bundle?.get("data")
+        val uri = bundle?.getString("URI")?.toUri()
+        val bitmap = BitmapFactory.decodeFile(uri.toString())
         sendImage(bitmap as Bitmap)
-        binding.resultsImage.setImageBitmap(bitmap as Bitmap?)
+        binding.resultsImage.setImageURI(uri)
         super.onViewCreated(view, savedInstanceState)
     }
 
-    private fun sendImage(bm: Bitmap) {
+    private fun sendImage(bm: Bitmap,) {
         val stream = ByteArrayOutputStream()
-        bm.compress(Bitmap.CompressFormat.JPEG, 100, stream)
+        bm.compress(Bitmap.CompressFormat.JPEG, 25, stream)
+        val fileName = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date()).toString() + ".jpeg"
         val byteArray = stream.toByteArray()
         val client = OkHttpClient()
         val requestBody = MultipartBody.Builder().setType(MultipartBody.FORM).addFormDataPart(
             "file",
-            "file.jpeg", byteArray.toRequestBody(
+            fileName, byteArray.toRequestBody(
                 "image/jpeg".toMediaTypeOrNull()
             )
         ).build()
-
         val url = "http://35.232.203.184:5000/detectLabel"
         val request = Request.Builder().url(url).post(requestBody).build()
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 Log.i("response", "masih gagal")
+                callBackGagal()
+                e.printStackTrace()
             }
 
             override fun onResponse(call: Call, response: Response) {
                 response.body?.let {
                     callBackSuccess(it.string())
                 }
-                if (response.body == null) {
-
-                }
             }
         })
     }
 
     fun callBackSuccess(response: String) {
-        Log.i("response",response)
+        Log.i("response", response)
         val arrayListPlastic = arrayListOf<ResultsDetection>()
         val arrayListGlass = arrayListOf<ResultsDetection>()
         val arrayListMetal = arrayListOf<ResultsDetection>()
         val rootJson = JsonParser.parseString(response).asJsonObject
         val responseJson = rootJson.getAsJsonArray("response")
-        val url = rootJson.get("url").asString
-        responseJson.forEach {
-            val responseObject = it.asJsonObject
-            when(responseObject.get("class_name").asString)
-            {
-                "plastic" -> {
-                    arrayListPlastic.add(Gson().fromJson(responseObject,ResultsDetection::class.java))
+        if (responseJson!=null)
+        {
+            responseJson.forEach {
+                val responseObject = it.asJsonObject
+                when(responseObject.get("class_name").asString)
+                {
+                    "plastic" -> {
+                        arrayListPlastic.add(
+                            Gson().fromJson(
+                                responseObject,
+                                ResultsDetection::class.java
+                            )
+                        )
+                    }
+                    "glass" -> {
+                        arrayListGlass.add(
+                            Gson().fromJson(
+                                responseObject,
+                                ResultsDetection::class.java
+                            )
+                        )
+                    }
+                    "metal" -> {
+                        arrayListMetal.add(
+                            Gson().fromJson(
+                                responseObject,
+                                ResultsDetection::class.java
+                            )
+                        )
+                    }
                 }
-                "glass" -> {
-                    arrayListGlass.add(Gson().fromJson(responseObject,ResultsDetection::class.java))
-                }
-                "metal" -> {
-                    arrayListMetal.add(Gson().fromJson(responseObject,ResultsDetection::class.java))}
             }
+            Log.i("plastic", arrayListPlastic.toString())
+            Log.i("glass", arrayListGlass.toString())
+            Log.i("metal", arrayListMetal.toString())
         }
-        Log.i("plastic", arrayListPlastic.toString())
-        Log.i("glass", arrayListGlass.toString())
-        Log.i("metal", arrayListMetal.toString())
+        else
+            callBackGagal()
+
     }
 
-    fun callBackNotDetected() {
+    fun callBackGagal() {
 
     }
 

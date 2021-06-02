@@ -24,6 +24,12 @@ class ExploreFragment : Fragment(), View.OnClickListener {
         viewModel.favorite.postValue(false)
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.favorite.postValue(false)
+        favorite = true
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,13 +40,14 @@ class ExploreFragment : Fragment(), View.OnClickListener {
         viewModel.favorite.observe(this,
             {
                 if (it) {
+                    binding.bookmarkButton.setImageResource(R.drawable.ic_bookmarks_filled)
                     viewModel.getProjects().removeObservers(this)
                     viewModel.getFavoriteProjects().observe(this,
                         {
                             adapter.setProjects(it)
                         })
                 } else {
-
+                    binding.bookmarkButton.setImageResource(R.drawable.ic_outline_bookmarks)
                     viewModel.getFavoriteProjects().removeObservers(this)
                     viewModel.getProjects().observe(this,
                         {
