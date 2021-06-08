@@ -131,7 +131,9 @@ class DetailFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(view: View?) {
         project?.let { detailViewModel.updateFavorite(it, nextState) }
+
     }
+
 
     companion object {
         @JvmStatic

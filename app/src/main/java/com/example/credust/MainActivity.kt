@@ -24,30 +24,36 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         val bottomNavigation: BottomNavigationView = binding.bottomNavbar
         bottomNavigation.setOnNavigationItemSelectedListener(this)
         if (savedInstanceState == null) {
+            toolbar.title = bottomNavigation.menu.findItem(R.id.feed).title
             val homeFragment = HomeFragment.newInstance()
             fragmentNavigate(homeFragment)
         }
     }
 
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.scan -> {
+                toolbar.title = item.title
                 val cameraFragment = CameraFragment.newInstance()
                 fragmentNavigate(cameraFragment)
                 return true
             }
             R.id.feed -> {
+                toolbar.title = item.title
                 val homeFragment = HomeFragment.newInstance()
                 fragmentNavigate(homeFragment)
                 return true
             }
             R.id.explore -> {
+                toolbar.title = item.title
                 val exploreFragment = ExploreFragment.newInstance()
                 fragmentNavigate(exploreFragment)
                 return true
 
             }
             R.id.rewards -> {
+                toolbar.title = item.title
                 val rewardsFragment = RewardsFragment.newInstance()
                 fragmentNavigate(rewardsFragment)
                 return true

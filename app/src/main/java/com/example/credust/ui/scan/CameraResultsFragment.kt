@@ -147,7 +147,7 @@ class CameraResultsFragment : Fragment() {
                 "image/jpeg".toMediaTypeOrNull()
             )
         ).build()
-        val url = "http://35.232.203.184:5000/detectLabel"
+        val url = "https://vernal-signal-312515.et.r.appspot.com/detectLabel"
         val request = Request.Builder().url(url).post(requestBody).build()
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
@@ -157,17 +157,13 @@ class CameraResultsFragment : Fragment() {
             }
 
             override fun onResponse(call: Call, response: Response) {
-                if(response.isSuccessful)
-                {
-                    try
-                    {
+                if (response.isSuccessful) {
+                    try {
                         response.body?.let {
                             callBackSuccess(it.string())
                         }
-                    }
-                    catch (e :IOException)
-                    {
-                      callBackGagal()
+                    } catch (e: IOException) {
+                        callBackGagal()
                     }
                 }
 
@@ -223,16 +219,15 @@ class CameraResultsFragment : Fragment() {
             if (arrayListPlastic.size != 0) {
                 viewModel.listPlastic.postValue(arrayListPlastic)
             }
-        } else
-        {
-            Log.i("zero results","ga gagal tapi fail to detect")
+        } else {
+            Log.i("zero results", "ga gagal tapi fail to detect")
             callBackGagal()
         }
 
     }
 
     fun callBackGagal() {
-       isFailed = true
+        isFailed = true
         isLoading.postValue(false)
     }
 
